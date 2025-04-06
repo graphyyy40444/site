@@ -131,6 +131,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
+            margin-bottom: 80px;
         }
         
         .product-card {
@@ -213,6 +214,124 @@
         .add-to-cart:hover {
             background-color: var(--accent-hover);
             transform: translateY(-2px);
+        }
+        
+        /* Why Us Section */
+        .why-us {
+            text-align: center;
+            margin: 100px 0;
+            padding: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .why-us::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.1), rgba(10, 10, 10, 0.8));
+            z-index: -1;
+        }
+        
+        .why-us h2 {
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: var(--accent-color);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .why-us h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--accent-color);
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .feature-card {
+            background-color: var(--secondary-bg);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .feature-card.animated {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px) !important;
+            box-shadow: 0 15px 40px rgba(138, 43, 226, 0.3);
+        }
+        
+        .feature-icon {
+            font-size: 40px;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+        
+        .feature-title {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+        
+        .feature-desc {
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        
+        /* Contact Section */
+        .contact {
+            text-align: center;
+            padding: 80px 0;
+            background-color: var(--secondary-bg);
+            margin-top: 60px;
+        }
+        
+        .contact h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: var(--accent-color);
+        }
+        
+        .discord-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            transform: scale(1);
+        }
+        
+        .discord-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        .discord-logo {
+            width: 80px;
+            height: 80px;
+            transition: all 0.3s ease;
         }
         
         /* Cart Modal */
@@ -519,6 +638,12 @@
             100% { box-shadow: 0 0 0 0 rgba(138, 43, 226, 0); }
         }
         
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
@@ -533,10 +658,18 @@
                 max-width: 100%;
             }
             
+            .why-us h2, .contact h2 {
+                font-size: 28px;
+            }
+            
             .spotify-player {
                 width: calc(100% - 40px);
                 left: 20px;
                 right: 20px;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -547,7 +680,7 @@
         <!-- 
             BURAYA SPOTIFY EMBED KODUNU YAPIŞTIRIN
             Örnek:
-            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/7bO7a1KrtmGNDIOy2u3siZ?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/56QNTK715IJeYmJP2grB5f?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         -->
         <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/5vqGU4eGav3JMlwRClgHAv?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     </div>
@@ -573,7 +706,7 @@
             
             <section class="products">
                 <div class="product-card">
-                    <div class="product-image" style="background-image: url('https://static.kinguin.net/media/images/products/_DiscordNitroClassic800.jpg');"></div>
+                    <div class="product-image" style="background-image: url('https://i.imgur.com/9wW7iYx.png');"></div>
                     <div class="product-content">
                         <h3 class="product-title">Discord Classic Nitro</h3>
                         <p class="product-description">Standart Discord Nitro deneyimi. Yüksek kaliteli ses, özel emojiler ve daha fazlası!</p>
@@ -583,7 +716,7 @@
                 </div>
                 
                 <div class="product-card">
-                    <div class="product-image" style="background-image: url('https://eucdn.klasgame.com/ilan/10-2023/3-aylik-discord-nitro-2x-boost-aninda-teslim-401056-2023-10-21-16-39-1.jpeg');"></div>
+                    <div class="product-image" style="background-image: url('https://i.imgur.com/5XJQZ3L.png');"></div>
                     <div class="product-content">
                         <h3 class="product-title">Discord Boosted Nitro</h3>
                         <p class="product-description">Gelişmiş Nitro deneyimi. Classic Nitro özelliklerine ek olarak sunucu boost avantajları!</p>
@@ -592,7 +725,61 @@
                     </div>
                 </div>
             </section>
+            
+            <!-- Why Us Section -->
+            <section class="why-us">
+                <h2>Neden Biz?</h2>
+                
+                <div class="features">
+                    <div class="feature-card">
+                        <div class="feature-icon">📅</div>
+                        <h3 class="feature-title">Güvenilir Geçmiş</h3>
+                        <p class="feature-desc">Bu işe 5 Ekim 2024 tarihinde sizin için başladık. Bu sürede 400'den fazla kişiye hizmet sunmaktayız.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🛡️</div>
+                        <h3 class="feature-title">Güvenli Yazılımlar</h3>
+                        <p class="feature-desc">Size zararlı yazılım bulundurmayan, bilgisayarınıza zarar vermeyen hile yazılımlarını sunuyoruz.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🎮</div>
+                        <h3 class="feature-title">Geniş Mod Kütüphanesi</h3>
+                        <p class="feature-desc">MTA, FiveM ve daha birçok oyun için mod çeşitliliği sunuyoruz. Tüm modlarımız test edilmiştir.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3 class="feature-title">Hızlı Teslimat</h3>
+                        <p class="feature-desc">Siparişleriniz anında hesabınıza tanımlanır. Bekleme süresi olmadan hemen kullanmaya başlayın.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">👨‍💻</div>
+                        <h3 class="feature-title">7/24 Destek</h3>
+                        <p class="feature-desc">Discord sunucumuz üzerinden 7 gün 24 saat aktif destek ekibimizle sorunlarınıza çözüm buluyoruz.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">💎</div>
+                        <h3 class="feature-title">Premium Kalite</h3>
+                        <p class="feature-desc">Tüm ürünlerimiz premium kalitede olup, düzenli güncellemelerle desteklenmektedir.</p>
+                    </div>
+                </div>
+            </section>
         </div>
+        
+        <!-- Contact Section -->
+        <section class="contact">
+            <div class="container">
+                <h2>İletişim</h2>
+                <p>Bize ulaşmak için Discord sunucumuza katılın</p>
+                <button class="discord-btn" id="discordBtn">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3670/3670157.png" alt="Discord" class="discord-logo">
+                </button>
+            </div>
+        </section>
     </main>
     
     <!-- Cart Modal -->
@@ -651,6 +838,8 @@
         const codeList = document.getElementById('codeList');
         const copyAllBtn = document.getElementById('copyAllBtn');
         const spotifyPlayer = document.getElementById('spotifyPlayer');
+        const discordBtn = document.getElementById('discordBtn');
+        const featureCards = document.querySelectorAll('.feature-card');
         
         let cart = [];
         
@@ -658,6 +847,29 @@
         setTimeout(() => {
             spotifyPlayer.classList.add('show');
         }, 1000);
+        
+        // Animate feature cards when scrolled into view
+        const animateOnScroll = () => {
+            featureCards.forEach(card => {
+                const cardTop = card.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (cardTop < windowHeight - 100) {
+                    card.classList.add('animated');
+                }
+            });
+        };
+        
+        // Initial check
+        animateOnScroll();
+        
+        // Add scroll event listener
+        window.addEventListener('scroll', animateOnScroll);
+        
+        // Discord button click
+        discordBtn.addEventListener('click', () => {
+            window.open('https://discord.gg/HgpGTuuzsD', '_blank');
+        });
         
         // Toggle cart modal
         cartButton.addEventListener('click', () => {
